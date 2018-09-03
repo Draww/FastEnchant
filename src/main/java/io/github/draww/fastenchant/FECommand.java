@@ -7,6 +7,8 @@ import mkremins.fanciful.FancyMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
+import java.util.Arrays;
+
 @CommandAlias("fe|fastenchant")
 public class FECommand extends BaseCommand {
 
@@ -16,12 +18,13 @@ public class FECommand extends BaseCommand {
     @CommandPermission("fastenchant.help")
     public void onHelp(CommandSender sender) {
         String label = getExecCommandLabel();
-        sender.sendMessage(
-                new String[]{"&a&m--------------------------------------------------"
+        sender.sendMessage(StringUtils.setColourList(Arrays.asList(
+                "&a&m--------------------------------------------------"
                 , "&f&lFastEnchant &7- How to use /" + label + " properly."
                 , " "
                 , "&7Proper Usage: &e/" + label + " <arg>"
-                , "&bAll possible actions. &7&o(Click the text to autofill the command)"});
+                , "&bAll possible actions. &7&o(Click the text to autofill the command)"))
+                .toArray(new String[0]));
         new FancyMessage("/" + label + " help")
                 .color(ChatColor.GREEN)
                 .tooltip("Click to autofill command")
