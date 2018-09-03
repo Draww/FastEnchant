@@ -41,6 +41,7 @@ shadowJar {
 dependencies {
     compileOnly group: 'org.spigotmc', name: 'spigot-api', version: '1.12.2-R0.1-SNAPSHOT'
     compile group: 'com.github.draww', name: 'black', version: '4.3.1'
+    compile group: 'com.github.draww', name: 'fanciful', version: 'master'
     compile "co.aikar:acf-bukkit:0.5.0-SNAPSHOT"
 }
 
