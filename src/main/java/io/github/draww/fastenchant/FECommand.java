@@ -32,13 +32,15 @@ public class FECommand extends BaseCommand {
                 .then(" - sends help message")
                 .color(ChatColor.YELLOW)
                 .send(sender);
-        new FancyMessage("/" + label + " reload")
-                .color(ChatColor.GREEN)
-                .tooltip("Click to autofill command")
-                .suggest("/" + label + " reload")
-                .then(" - reloads the plugin and all configuration files")
-                .color(ChatColor.YELLOW)
-                .send(sender);
+        if (sender.hasPermission("fastenchant.reload")) {
+            new FancyMessage("/" + label + " reload")
+                    .color(ChatColor.GREEN)
+                    .tooltip("Click to autofill command")
+                    .suggest("/" + label + " reload")
+                    .then(" - reloads the plugin and all configuration files")
+                    .color(ChatColor.YELLOW)
+                    .send(sender);
+        }
         sender.sendMessage("&a&m--------------------------------------------------");
     }
 
