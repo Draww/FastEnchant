@@ -1,12 +1,9 @@
 package io.github.draww.fastenchant;
 
 import co.aikar.commands.BukkitCommandManager;
-import io.github.draww.fastenchant.utils.StringUtils;
 import me.blackness.black.Blackness;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import static io.github.draww.fastenchant.utils.StringUtils.*;
 
 public class FastEnchant extends JavaPlugin {
 
@@ -19,6 +16,7 @@ public class FastEnchant extends JavaPlugin {
         instance = this;
         new Blackness().prepareFor(this);
         commandManager = new BukkitCommandManager(this);
+        commandManager.registerCommand(new FECommand());
         log("*--------------------------------------------*");
         log("| FastEnchant has been successfully enabled! |");
         log("*--------------------------------------------*");
@@ -55,5 +53,9 @@ public class FastEnchant extends JavaPlugin {
 
     public void logWarning(String warning) {
         getLogger().warning(warning);
+    }
+
+    public void reload() {
+
     }
 }
