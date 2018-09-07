@@ -32,7 +32,7 @@ public class FastEnchant extends JavaPlugin {
     @Override
     public void onDisable() {
         log("*--------------------------------*");
-        log("| FastEnchant has been disabled! |");
+        log(" FastEnchant has been disabled! ");
         log("*--------------------------------*");
         config.save();
         HandlerList.unregisterAll(this);
