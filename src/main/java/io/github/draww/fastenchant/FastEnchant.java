@@ -11,14 +11,21 @@ public class FastEnchant extends JavaPlugin {
 
     private BukkitCommandManager commandManager;
 
+    private Config config;
+
     @Override
     public void onEnable() {
         instance = this;
+        config = new Config(this).loadAndSaveConfig();
         new Blackness().prepareFor(this);
         commandManager = new BukkitCommandManager(this);
         commandManager.registerCommand(new FECommand());
         log("*--------------------------------------------*");
-        log("| FastEnchant has been successfully enabled! |");
+        log(" FastEnchant has been successfully enabled! ");
+        log("                                            ");
+        log(" Main Config Version: " + config.getVersion());
+        log(" Command Library have been loaded and commands have been added.");
+        log(" Inventory Library is loaded.");
         log("*--------------------------------------------*");
     }
 
@@ -27,6 +34,7 @@ public class FastEnchant extends JavaPlugin {
         log("*--------------------------------*");
         log("| FastEnchant has been disabled! |");
         log("*--------------------------------*");
+        config.save();
         HandlerList.unregisterAll(this);
         commandManager.unregisterCommands();
     }
@@ -37,6 +45,10 @@ public class FastEnchant extends JavaPlugin {
 
     public BukkitCommandManager getCommandManager() {
         return commandManager;
+    }
+
+    public Config getMainConfig() {
+        return config;
     }
 
     public void log(String string) {
