@@ -1,5 +1,6 @@
 package io.github.draww.fastenchant;
 
+import de.exlll.configlib.annotation.Comment;
 import io.github.draww.fastenchant.utils.DConfig;
 
 import java.io.File;
@@ -10,6 +11,10 @@ public class Config extends DConfig {
         super(new File(plugin.getDataFolder(), "config.yml").toPath());
     }
 
+    @Comment({
+            "absolutely not recommended edit this option!",
+            "if you want to update the config file, you can visit the project's github page."
+    })
     private String config_version = "1";
 
     /* ------------------------------------------------------------------- */
